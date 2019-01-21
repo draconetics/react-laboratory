@@ -7,6 +7,7 @@ import Photowall from './Photowall';
 import AddPhoto from './AddPhoto';
 
 import {connect} from 'react-redux'
+import {removePost} from'../redux/actions';
 
 class Main extends Component {
 
@@ -20,6 +21,10 @@ class Main extends Component {
         //to his father and will get response
         //tmp deleted this.removePhoto = this.removePhoto.bind(this);
         console.log("constructor");
+    }
+
+    componentDidMount() {
+        this.props.removePost(1);
     }
 
 /*
@@ -55,12 +60,12 @@ class Main extends Component {
     }
 */
     render() {
-        console.log(this.props.posts);
+        console.log(this.props);//show me the method dispatch
         return  <div>
                 <Route exact path = "/" render={()=>(
                     <div> 
                         <Title title = {'Photowall'}/>
-                        <Photowall posts={this.props.posts} /> 
+                        <Photowall {...this.props} />
                     </div>
                 )
                 }/>
@@ -96,10 +101,7 @@ function SimlateFunctionFromDatabase() {
     }];
 }
 
-function mapStateToProps(state) {
-    return {posts: state};
-}
-const App = connect (mapStateToProps)(Main);
+
 
 
 export default Main;
