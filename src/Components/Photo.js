@@ -3,12 +3,14 @@ import React, {Component} from 'react';
 
 function Photo(props) {
     const photo = props.post;
-        console.log(photo);
+       // console.log(photo);
         return  <figure className="figure">
                     <img className="photo" src={photo.imageLink} alt={photo.description}/>
                     <figcaption><p>{photo.description}</p></figcaption>
                     <div className="button-container">
-                        <button className="remove-button">Remove</button>
+                        <button className="remove-button" onClick={() =>
+                            props.onRemovePhoto(photo)
+                        }>Remove</button>
                     </div>
                 </figure>;
 }
