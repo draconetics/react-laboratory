@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Route} from 'react-router-dom';
 
 
 import Title from './Title';
@@ -18,6 +19,7 @@ class Main extends Component {
         this.removePhoto = this.removePhoto.bind(this);
         console.log("constructor");
     }
+
 
     componentDidMount() {
         const posts = SimlateFunctionFromDatabase();
@@ -47,20 +49,16 @@ class Main extends Component {
     render() {
         console.log('render');
         return  <div>
-                {
-                this.state.screen === 'photos' && (
-                <div> <Title title = {'Photowall'}/>
-                    <Photowall posts={this.state.posts} onRemovePhoto={this.removePhoto}/> 
-                    
-                </div>
+                <Route exact path = "/" render={()=>(
+                    <div> 
+                        <Title title = {'Photowall'}/>
+                        <Photowall posts={this.state.posts} onRemovePhoto={this.removePhoto}/> 
+                    </div>
                 )
-                }
-                {this.state.screen === 'addPhotos' && (
-                <div>
-                    <AddPhoto/>
-                </div>
-                )
-                }
+                }/>
+                
+                <Route path = "/AddPhoto" component={AddPhoto}/>
+
                 </div>;
     }
 }
