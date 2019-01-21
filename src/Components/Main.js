@@ -27,6 +27,13 @@ class Main extends Component {
 
         console.log("component did mount");
     }
+    //componentWillMount
+
+    componentDidUpdate(prevProps, prevState) {
+        alert("re-update");
+        console.log(prevProps);
+        console.log(prevState);
+    }
 
     removePhoto(postRemove) {
         console.log("removing ."+postRemove.id);
