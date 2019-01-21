@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 
 function Photo(props) {
+
+
+    console.log("finleeeeeee");
+    console.log(props.posts);
     const photo = props.post;
        // console.log(photo);
         return  <figure className="figure">
@@ -18,7 +22,6 @@ function Photo(props) {
 
 Photo.propTypes = {
     post: PropTypes.object.isRequired,
-    onRemovePhoto: PropTypes.func.isRequired
 }
 
 /*

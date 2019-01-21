@@ -17,6 +17,7 @@ function Photowall(props) {
     </div>;  
 }
 
+//static if there is a class
 Photowall.propTypes = {
     posts: PropTypes.array.isRequired,
     onRemovePhoto: PropTypes.func.isRequired

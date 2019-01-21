@@ -6,6 +6,8 @@ import Title from './Title';
 import Photowall from './Photowall';
 import AddPhoto from './AddPhoto';
 
+import {connect} from 'react-redux'
+
 class Main extends Component {
 
     constructor() {
@@ -16,11 +18,11 @@ class Main extends Component {
 
         //no matter if the function is called from child child class, it will call to
         //to his father and will get response
-        this.removePhoto = this.removePhoto.bind(this);
+        //tmp deleted this.removePhoto = this.removePhoto.bind(this);
         console.log("constructor");
     }
 
-
+/*
     componentDidMount() {
         const posts = SimlateFunctionFromDatabase();
         this.setState({
@@ -51,25 +53,25 @@ class Main extends Component {
             posts: this.state.posts.concat([postSubmitted])
         });
     }
-
+*/
     render() {
-        console.log(this.state.posts);
+        console.log(this.props.posts);
         return  <div>
                 <Route exact path = "/" render={()=>(
                     <div> 
                         <Title title = {'Photowall'}/>
-                        <Photowall posts={this.state.posts} onRemovePhoto={this.removePhoto}/> 
+                        <Photowall posts={this.props.posts} /> 
                     </div>
                 )
                 }/>
 
-                <Route path = "/AddPhoto" render={({history})=>(
+                {/*<Route path = "/AddPhoto" render={({history})=>(
                     <div> 
                         <AddPhoto onAddPhoto= {(addedPost)=>{
                             this.addPhoto(addedPost)
                             history.push('./')}} />
                     </div>
-                )
+                        )    */}
                 }/>
 
                 </div>;
@@ -93,5 +95,11 @@ function SimlateFunctionFromDatabase() {
         imageLink: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjwl9MlAvzSgbp0zCd_J1EvwXwmfU9S3Emr_uxqnEDdd5mfMxF"   
     }];
 }
+
+function mapStateToProps(state) {
+    return {posts: state};
+}
+const App = connect (mapStateToProps)(Main);
+
 
 export default Main;
