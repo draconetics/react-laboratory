@@ -41,9 +41,15 @@ class Main extends Component {
     removePhoto(postRemove) {
         console.log("removing ."+postRemove.id);
         this.setState({
-            posts: this.state.posts.filter((post) => post.id !== postRemove.id)
+            posts: this.state.posts.filter((post) => post !== postRemove)
         });
         console.log(this.state.posts);
+    }
+
+    addPhoto(postSubmitted){
+        this.setState({
+            posts: this.state.posts.concat([postSubmitted])
+        });
     }
 
     render() {
@@ -56,8 +62,15 @@ class Main extends Component {
                     </div>
                 )
                 }/>
-                
-                <Route path = "/AddPhoto" component={AddPhoto}/>
+
+                <Route path = "/AddPhoto" render={({history})=>(
+                    <div> 
+                        <AddPhoto onAddPhoto= {(addedPost)=>{
+                            this.addPhoto(addedPost)
+                            history.push('./')}} />
+                    </div>
+                )
+                }/>
 
                 </div>;
     }

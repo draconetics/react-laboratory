@@ -98,19 +98,20 @@ center no-repeat;
     color: black
     }
     .form {
-    width: 360px;
-    padding: 0 0 0;
-    margin: auto;
+    max-width: 360px;
+    padding: 45px;
+    margin: 0 auto;
+    text-align: center;
     }
     .form input {
     font-family: sans-serif;
-    outline: 0;
     background: #f2f2f2;
     width: 100%;
-    border: 0;
+    border: none;
     margin: 0 0 15px;
     padding: 15px;
-    box-sizing: border-box;font-size: 14px;
+    box-sizing: border-box;
+    font-size: 14px;
     }
     .form button {
     font-family: "Roboto", sans-serif;
