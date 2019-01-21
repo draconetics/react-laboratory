@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Grand+Hotel');
+html{
+    font-size: 10px;
+}
+
+h1 {
+    font-family: 'Grand Hotel', cursive;
+    text-align: center;
+    font-size: 13rem;
+    font-weight: 100;
+    margin: 2rem 0;
+    letter-spacing: 5px;
+    color: #000;
+}
+

@@ -5,9 +5,8 @@ import Title from './Title';
 
 class Main extends Component {
     render() {
-        return <div> <Title title = {'todos'}/>
-                        <List tasks={['Mow the law', 'Walk the dog']}/> 
-                        <List tasks={['Another law', 'Walk the cat']}/> 
+        return <div> <Title title = {'Photowall'}/>
+                        
                 </div>;
     }
 }
