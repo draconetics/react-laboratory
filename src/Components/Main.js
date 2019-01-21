@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 
 import Title from './Title';
 import Photowall from './Photowall';
-
+import AddPhoto from './AddPhoto';
 
 class Main extends Component {
 
@@ -22,7 +22,8 @@ class Main extends Component {
     componentDidMount() {
         const posts = SimlateFunctionFromDatabase();
         this.setState({
-            posts: posts
+            posts: posts,
+            screen: 'addPhotos' //photos, addphotos.
         });
 
         console.log("component did mount");
@@ -30,7 +31,7 @@ class Main extends Component {
     //componentWillMount
 
     componentDidUpdate(prevProps, prevState) {
-        alert("re-update");
+        //alert("re-update");
         console.log(prevProps);
         console.log(prevState);
     }
@@ -45,8 +46,21 @@ class Main extends Component {
 
     render() {
         console.log('render');
-        return <div> <Title title = {'Photowall'}/>
+        return  <div>
+                {
+                this.state.screen === 'photos' && (
+                <div> <Title title = {'Photowall'}/>
                     <Photowall posts={this.state.posts} onRemovePhoto={this.removePhoto}/> 
+                    
+                </div>
+                )
+                }
+                {this.state.screen === 'addPhotos' && (
+                <div>
+                    <AddPhoto/>
+                </div>
+                )
+                }
                 </div>;
     }
 }
