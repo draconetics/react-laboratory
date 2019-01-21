@@ -23,9 +23,7 @@ class Main extends Component {
         console.log("constructor");
     }
 
-    componentDidMount() {
-        this.props.removePost(1);
-    }
+
 
 /*
     componentDidMount() {
