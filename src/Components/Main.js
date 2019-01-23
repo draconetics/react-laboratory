@@ -60,10 +60,12 @@ class Main extends Component {
     }
 */
     render() {
+        console.log("first log");
         console.log(this.props);//show me the method dispatch
         /////******** history=== params.history 
         //history is a part of that object called params.
         //first this.props as a propertie because the second propertie overrides the atribute.
+        
         return  <div>
                 <h1>
                     <Link to="/">Photowall</Link>

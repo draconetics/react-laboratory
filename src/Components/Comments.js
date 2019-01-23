@@ -2,10 +2,28 @@ import React, {Component} from 'react';
 
 
 class Comments extends Component{
+    
+    constructor(){
+        super();
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        const comment = event.target.elements.comment.value;
+        this.props.addComment(comment);
+    }
+    
     render(){
+    
         return <div className="comments">
-            <form className="comments-form">
-                <input type="text" placeholder="comment"/>
+        {
+            this.props.comments.map((comment, index)=>{
+                return <p key={index}>{comment}</p>
+            })
+        }
+            <form className="comments-form" onSubmit={this.handleSubmit}>
+                <input type="text" placeholder="comment" name="comment"/>
                 <input type="submit" value="save"/>
             </form>
         </div>;

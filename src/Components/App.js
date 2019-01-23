@@ -5,7 +5,12 @@ import * as actions from '../redux/actions';
 import {withRouter} from 'react-router';
 
 function mapStateToProps(state) {
-    return {posts: state};
+//    console.log("show me the state..");
+//    console.log(state);
+    return {
+        posts: state.postReducer,
+        comments: state.commentReducer
+    };
 }
 
 function mapDispatchToProps(dispatch) {
