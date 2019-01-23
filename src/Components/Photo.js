@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-
+import {Link} from 'react-router-dom';
 
 function Photo(props) {
 
@@ -10,7 +10,7 @@ function Photo(props) {
     const photo = props.post;
        // console.log(photo);
         return  <figure className="figure">
-                    <img className="photo" src={photo.imageLink} alt={photo.description}/>
+                    <Link to={`/single/${photo.id}`}> <img className="photo" src={photo.imageLink} alt={photo.description}/></Link>
                     <figcaption><p>{photo.description}</p></figcaption>
                     <div className="button-container">
                         <button className="remove-button" onClick={() =>

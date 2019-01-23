@@ -6,6 +6,7 @@ import {Route,Link} from 'react-router-dom';
 import Title from './Title';
 import Photowall from './Photowall';
 import AddPhoto from './AddPhoto';
+import Single from './Single';
 
 import {connect} from 'react-redux'
 import {removePost} from'../redux/actions';
@@ -60,6 +61,9 @@ class Main extends Component {
 */
     render() {
         console.log(this.props);//show me the method dispatch
+        /////******** history=== params.history 
+        //history is a part of that object called params.
+        //first this.props as a propertie because the second propertie overrides the atribute.
         return  <div>
                 <h1>
                     <Link to="/">Photowall</Link>
@@ -77,7 +81,9 @@ class Main extends Component {
                     </div>
                     )     
                     }/>
-
+                <Route path="/Single/:id" render={(params)=>(
+                    <Single  {...this.props} {...params}/> 
+                )}/>
                 </div>;
     }
 }
