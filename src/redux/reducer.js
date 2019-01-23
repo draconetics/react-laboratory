@@ -5,11 +5,12 @@ const postReducer = function posts(state=posts, action) {
     //remove photo
     switch(action.type){
         case 'REMOVE_POST': return [...state.slice(0, action.index), ...state.slice(action.index+1)];
-
-            break;
+           // break;
+        case 'ADD_POST': return  [...state,action.post];
+           // break;
         default : return state;
     }
-    return state;
+   // return state;
 }
 
 export default postReducer;
