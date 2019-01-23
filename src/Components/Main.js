@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Route} from 'react-router-dom';
+import {Route,Link} from 'react-router-dom';
+
 
 
 import Title from './Title';
@@ -60,9 +61,11 @@ class Main extends Component {
     render() {
         console.log(this.props);//show me the method dispatch
         return  <div>
+                <h1>
+                    <Link to="/">Photowall</Link>
+                </h1>
                 <Route exact path = "/" render={()=>(
                     <div> 
-                        <Title title = {'Photowall'}/>
                         <Photowall {...this.props} />
                     </div>
                 )
