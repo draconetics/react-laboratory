@@ -5,17 +5,19 @@ import {Link} from 'react-router-dom';
 function Photo(props) {
 
 
-    console.log("finleeeeeee");
-    console.log(props.posts);
+    //console.log("finleeeeeee");
+    //console.log(props.posts);
     const photo = props.post;
        // console.log(photo);
         return  <figure className="figure">
                     <Link to={`/single/${photo.id}`}> <img className="photo" src={photo.imageLink} alt={photo.description}/></Link>
                     <figcaption><p>{photo.description}</p></figcaption>
                     <div className="button-container">
-                        <button className="remove-button" onClick={() =>
+                        <button className="remove-button" onClick={() =>{
+                            console.log("this gonna delete",props.index)
                             props.removePost(props.index)
-
+                            props.history.push('/')
+                        }
                         }>Remove</button>
                     </div>
                 </figure>;

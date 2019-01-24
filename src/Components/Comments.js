@@ -11,11 +11,11 @@ class Comments extends Component{
     handleSubmit(event) {
         event.preventDefault();
         const comment = event.target.elements.comment.value;
-        this.props.addComment(comment);
+        this.props.addComment(comment, this.props.postId);
     }
     
     render(){
-    
+        console.log(this.props);
         return <div className="comments">
         {
             this.props.comments.map((comment, index)=>{
