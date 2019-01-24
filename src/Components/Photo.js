@@ -19,6 +19,14 @@ function Photo(props) {
                             props.history.push('/')
                         }
                         }>Remove</button>
+                        <Link className="button" to={`single/${photo.id}`}>
+                            <div className="comments-count">
+                                <p>
+                                <div className="speech-bubble"></div>
+                                {props.comments[photo.id] ? props.comments[photo.id].length : 0}
+                                </p>
+                            </div>
+                        </Link>
                     </div>
                 </figure>;
 }
